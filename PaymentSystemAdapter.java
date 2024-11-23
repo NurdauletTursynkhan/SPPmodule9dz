@@ -1,9 +1,7 @@
-// Интерфейс для обработки платежей
 interface IPaymentProcessor {
     void processPayment(double amount);
 }
 
-// Реализация PayPalPaymentProcessor
 class PayPalPaymentProcessor implements IPaymentProcessor {
     @Override
     public void processPayment(double amount) {
@@ -11,14 +9,12 @@ class PayPalPaymentProcessor implements IPaymentProcessor {
     }
 }
 
-// Сторонний класс StripePaymentService
 class StripePaymentService {
     public void makeTransaction(double totalAmount) {
         System.out.println("Processing payment of " + totalAmount + " via Stripe.");
     }
 }
 
-// Адаптер для StripePaymentService
 class StripePaymentAdapter implements IPaymentProcessor {
     private final StripePaymentService stripeService;
 
@@ -32,14 +28,12 @@ class StripePaymentAdapter implements IPaymentProcessor {
     }
 }
 
-// Сторонний класс для второго процессора
 class SquarePaymentService {
     public void processSquarePayment(double amount) {
         System.out.println("Processing payment of " + amount + " via Square.");
     }
 }
 
-// Адаптер для SquarePaymentService
 class SquarePaymentAdapter implements IPaymentProcessor {
     private final SquarePaymentService squareService;
 
@@ -53,7 +47,6 @@ class SquarePaymentAdapter implements IPaymentProcessor {
     }
 }
 
-// Клиентский код
 public class PaymentSystem {
     public static void main(String[] args) {
         // Работа с PayPal
