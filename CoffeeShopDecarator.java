@@ -1,10 +1,8 @@
-// Базовый интерфейс для напитков
 interface Beverage {
     String getDescription();
     double getCost();
 }
 
-// Реализация базовых напитков
 class Espresso implements Beverage {
     public String getDescription() {
         return "Espresso";
@@ -45,7 +43,6 @@ class Mocha implements Beverage {
     }
 }
 
-// Абстрактный декоратор
 abstract class BeverageDecorator implements Beverage {
     protected Beverage beverage;
 
@@ -62,7 +59,6 @@ abstract class BeverageDecorator implements Beverage {
     }
 }
 
-// Конкретные декораторы
 class Milk extends BeverageDecorator {
     public Milk(Beverage beverage) {
         super(beverage);
@@ -111,7 +107,6 @@ class WhippedCream extends BeverageDecorator {
     }
 }
 
-// Клиентский код
 public class CoffeeShop {
     public static void main(String[] args) {
         Beverage beverage = new Espresso();
